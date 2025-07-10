@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inscription réussie</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #333;
+    }
+    .container {
+      background: white;
+      padding: 40px 60px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h1 {
+      color: #2b7de9;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body onload="sendWebhook()">
+  <div class="container">
+    <h1>Vous êtes bien inscrit 🎉</h1>
+    <p>Merci pour votre participation !</p>
+  </div>
+
+  <script>
+function sendWebhook() {
+  fetch('https://webhook.site/24a1fd5a-808d-4b64-9b11-1cae5360e8fa?USER=%2B1')
+    .then(response => {
+      console.log('Webhook envoyé');
+    })
+    .catch(error => {
+      console.error('Erreur lors de l’envoi du webhook', error);
+    });
+}
+
+  </script>
+</body>
+</html>
