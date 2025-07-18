@@ -53,6 +53,12 @@
     button:hover {
       background-color: #1c5fbd;
     }
+    #confirmation {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+      display: none;
+    }
   </style>
 </head>
 <body onload="sendWebhook()">
@@ -60,11 +66,13 @@
     <h1>Vous êtes bien inscrit 🎉</h1>
     <p>Merci pour votre participation !</p>
 
-    <form onsubmit="return false;">
+    <form onsubmit="return showConfirmation();">
       <label for="allergie">Avez-vous une allergie alimentaire ?</label>
       <input type="text" id="allergie" name="allergie" placeholder="Ex : arachides, gluten, aucun...">
       <button type="submit">Envoyer</button>
     </form>
+
+    <div id="confirmation">Bien enregistré !</div>
   </div>
 
   <script>
@@ -76,6 +84,11 @@
         .catch(error => {
           console.error('Erreur lors de l’envoi du webhook', error);
         });
+    }
+
+    function showConfirmation() {
+      document.getElementById('confirmation').style.display = 'block';
+      return false; // Empêche l'envoi réel du formulaire
     }
   </script>
 </body>
