@@ -20,10 +20,38 @@
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
       text-align: center;
+      max-width: 500px;
+      width: 100%;
     }
     h1 {
       color: #2b7de9;
       margin-bottom: 20px;
+    }
+    form {
+      margin-top: 30px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #2b7de9;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1c5fbd;
     }
   </style>
 </head>
@@ -31,19 +59,24 @@
   <div class="container">
     <h1>Vous êtes bien inscrit 🎉</h1>
     <p>Merci pour votre participation !</p>
+
+    <form onsubmit="return false;">
+      <label for="allergie">Avez-vous une allergie alimentaire ?</label>
+      <input type="text" id="allergie" name="allergie" placeholder="Ex : arachides, gluten, aucun...">
+      <button type="submit">Envoyer</button>
+    </form>
   </div>
 
   <script>
-function sendWebhook() {
-  fetch('https://webhook.site/ccf620f9-c58e-40ed-9029-c32c36c29385?USER=%2B1')
-    .then(response => {
-      console.log('Webhook envoyé');
-    })
-    .catch(error => {
-      console.error('Erreur lors de l’envoi du webhook', error);
-    });
-}
-
+    function sendWebhook() {
+      fetch('https://webhook.site/ccf620f9-c58e-40ed-9029-c32c36c29385?USER=%2B1')
+        .then(response => {
+          console.log('Webhook envoyé');
+        })
+        .catch(error => {
+          console.error('Erreur lors de l’envoi du webhook', error);
+        });
+    }
   </script>
 </body>
 </html>
